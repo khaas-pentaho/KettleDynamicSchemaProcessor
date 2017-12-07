@@ -5,13 +5,13 @@ The Kettle Dynamic Schema Processor from Inquidia Consulting allows you to imple
 
 Pre-requisites:
 --------------------------
-- Pentaho 6.0 or above
+- Pentaho 7.1 or above
 
 Installation:
 --------------------------
 
 1. Place the KettleDynamicSchemaProcessor jar in the `<BISERVER_HOME>/tomcat/webapps/pentaho/WEB-INF/lib` directory
-2. If you plan to store the Kettle transformation in the Jackrabbit repository place the libpensol jar in the `<BISERVER_HOME>/tomcat/webapps/pentaho/WEB-INF/lib` directory.  The libpensol jar may be downloaded from: http://repo.pentaho.org/artifactory/repo/pentaho-library/libpensol/JCR-SNAPSHOT/
+2. If you plan to store the Kettle transformation in the Jackrabbit repository place the libpensol jar in the `<BISERVER_HOME>/tomcat/webapps/pentaho/WEB-INF/lib` directory.  The libpensol jar can be found in Pentaho reporting, or may be built from: https://github.com/pentaho/pentaho-reporting/tree/master/libraries/libpensol
 3. Some useful CDE dashboards to help with development may be uploaded to BA server from the KettleDSPUtils directory.
 
 Usage:
@@ -21,10 +21,11 @@ Usage:
   1. DynamicSchemaProcessor: org.inquidia.mondrian.dynamicschemaprocessor.KettleDynamicSchemaProcessor
   2. kettleTransFile: The path to the transformation to use as the DSP.
     1. If the transformation is in the BA Server repository preface the path with jcr-solution://  For example jcr-solution://home/admin/pass-through.ktr
-  3. (Optional) kettleStepName: (Default: OUTPUT) The name of the step in the Kettle transformation to read the output schema from.
-  4. (Optional)( schemaFieldName: (Default: schema) The name of the field in the Kettle step that contains the schema.
-  5. (Optional) cacheEnabled: (true/false) (Default true).  Caches the output schema for each user.  Also caches the kettle transformation to run.
-  6. (Optional) KettleParameterHandler: The class to override the default parameter handler determining how parameters are passed into Kettle.
+  3. DataSource: Name of the Pentaho DataSource that provides data behind the cube. This parameter may be created by default when creating a schema.
+  4. (Optional) kettleStepName: (Default: OUTPUT) The name of the step in the Kettle transformation to read the output schema from.
+  5. (Optional)( schemaFieldName: (Default: schema) The name of the field in the Kettle step that contains the schema.
+  6. (Optional) cacheEnabled: (true/false) (Default true).  Caches the output schema for each user.  Also caches the kettle transformation to run.
+  7. (Optional) KettleParameterHandler: The class to override the default parameter handler determining how parameters are passed into Kettle.
 
 #### Kettle Parameters:
 
