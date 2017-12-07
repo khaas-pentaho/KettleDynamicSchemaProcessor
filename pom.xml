@@ -6,12 +6,20 @@
 
     <groupId>org.inquidia.mondrian.dynamicschemaprocessor</groupId>
     <artifactId>KettleDynamicSchemaProcessor</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>7.1-SNAPSHOT</version>
+
+<properties>
+    <pentaho-kettle.version>7.1-SNAPSHOT</pentaho-kettle.version>
+    <pentaho.version>7.1-SNAPSHOT</pentaho.version>
+    <pentaho-reporting-engine.version>LATEST</pentaho-reporting-engine.version>
+    <mondrian.version>LATEST</mondrian.version>
+    <org.apache.maven.plugins.version>3.7.0</org.apache.maven.plugins.version>
+</properties>
 
     <repositories>
         <repository>
             <id>pentaho</id>
-            <url>http://repository.pentaho.org/artifactory/repo/</url>
+            <url>https://public.nexus.pentaho.org/content/groups/omni/</url>
         </repository>
         <repository>
             <id>apache</id>
@@ -20,81 +28,84 @@
     </repositories>
 
     <dependencies>
+
+
         <dependency>
             <groupId>pentaho-kettle</groupId>
             <artifactId>kettle-engine</artifactId>
-            <version>6.0-SNAPSHOT</version>
+            <version>${pentaho-kettle.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>pentaho-kettle</groupId>
             <artifactId>kettle-core</artifactId>
-            <version>6.0-SNAPSHOT</version>
+            <version>${pentaho-kettle.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>pentaho-kettle</groupId>
             <artifactId>kettle-dbdialog</artifactId>
-            <version>6.0-SNAPSHOT</version>
+            <version>${pentaho-kettle.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>pentaho-kettle</groupId>
             <artifactId>kettle-ui-swt</artifactId>
-            <version>TRUNK-SNAPSHOT</version>
+            <version>${pentaho-kettle.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-xul-swt</artifactId>
-            <version>TRUNK-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-xul-core</artifactId>
-            <version>TRUNK-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-xul-swing</artifactId>
-            <version>TRUNK-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
+ 
         <dependency>
             <groupId>pentaho-reporting-engine</groupId>
             <artifactId>pentaho-reporting-engine-classic-core</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho-reporting-engine.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho-reporting-engine</groupId>
             <artifactId>pentaho-reporting-engine-classic-extensions</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho-reporting-engine.version}</version>
         </dependency>
 
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-platform-core</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-platform-api</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>mondrian</artifactId>
-            <version>LATEST</version>
+            <version>${mondrian.version}</version>
         </dependency>
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-platform-repository</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
         </dependency>
 
         <dependency>
             <groupId>pentaho</groupId>
             <artifactId>pentaho-platform-extensions</artifactId>
-            <version>6.1-SNAPSHOT</version>
+            <version>${pentaho.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.xbean</groupId>
@@ -103,8 +114,6 @@
 
             </exclusions>
         </dependency>
-
-
 
     </dependencies>
 
@@ -120,6 +129,7 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+                <version>${org.apache.maven.plugins.version}</version>
             </plugin>
         </plugins>
     </build>
