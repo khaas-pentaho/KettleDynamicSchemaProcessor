@@ -27,13 +27,14 @@ import org.pentaho.di.trans.TransMeta;
 import org.pentaho.platform.api.engine.IPentahoSession;
 import org.pentaho.platform.api.usersettings.IUserSettingService;
 import org.pentaho.platform.api.usersettings.pojo.IUserSetting;
-import org.springframework.security.Authentication;
-import org.springframework.security.GrantedAuthority;
-import org.springframework.security.context.SecurityContextImpl;
-import org.springframework.security.userdetails.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by openbi on 11/7/2014.
@@ -70,7 +71,7 @@ public class ParameterHandler implements IParameterHandler {
                     boolean isAuthenticated = auth.isAuthenticated();
                     LOGGER.debug("Attempting to set Kettle parameter Security.isAuthenticated to " + Boolean.toString(isAuthenticated));
                     transMeta.setParameterValue("Security.isAuthenticated", Boolean.toString(isAuthenticated));
-                    GrantedAuthority[] authorities = auth.getAuthorities();
+                    Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
                     StringBuilder authorityList = new StringBuilder();
                     for (GrantedAuthority authority : authorities) {
                         if (authorityList.length() == 0) {
